@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: webhook-processor
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: MONGODB_URL
+        fromDatabase:
+          name: webhook-db
+          property: connectionString
+    healthCheckPath: /
+
+databases:
+  - name: webhook-db
+    databaseName: webhook_processor
+    plan: free
