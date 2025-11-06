@@ -194,17 +194,19 @@ curl https://webhook-processor.onrender.com/v1/transactions/demo_123
 
 ### Option 1: Render.com (Recommended - 100% Free)
 
-1. **Fork this repo** to your GitHub
-2. **Sign up** at [render.com](https://render.com) 
-3. **Create Blueprint** from your GitHub repo
-4. **Deploy** - Render uses `render.yaml` and sets up everything automatically!
+**Quick Setup:**
+1. **Setup MongoDB Atlas** (free 512MB database)
+2. **Deploy on Render** (free 750 hours/month)
+3. **Connect database** via environment variable
 
-**Why Render?**
+**📋 Detailed Guide:** See [RENDER_SETUP.md](RENDER_SETUP.md) for complete step-by-step instructions.
+
+**Why Render + MongoDB Atlas?**
 - ✅ 750 hours/month FREE (enough for demos)
-- ✅ Free MongoDB database included
+- ✅ Free MongoDB Atlas (512MB forever)
 - ✅ Auto-deploys on git push
 - ✅ SSL certificates included
-- ✅ Zero configuration needed
+- ✅ No credit card required
 
 ### Option 2: Fly.io (Free Tier)
 

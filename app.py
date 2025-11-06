@@ -118,11 +118,17 @@ async def add_process_time_header(request, call_next):
 async def startup_event():
     """Create database indexes on startup"""
     try:
+        # Test database connection first
+        await client.admin.command('ping')
+        logger.info("Database connection successful")
+        
         # Create unique index on transaction_id for idempotency
         await db.transactions.create_index("transaction_id", unique=True)
         logger.info("Database indexes created")
     except Exception as e:
-        logger.error(f"Failed to create indexes: {e}")
+        logger.error(f"Database connection failed: {e}")
+        logger.error("Please set MONGODB_URL environment variable with valid MongoDB connection string")
+        logger.error("Example: mongodb+srv://username:password@cluster.mongodb.net/webhook_processor")
 
 @app.get("/", response_model=HealthResponse)
 async def health_check():

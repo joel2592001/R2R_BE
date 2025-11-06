@@ -6,12 +6,6 @@ services:
     plan: free
     envVars:
       - key: MONGODB_URL
-        fromDatabase:
-          name: webhook-db
-          property: connectionString
+        # You need to set this in Render dashboard after creating MongoDB Atlas cluster
+        # Example: mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/webhook_processor
     healthCheckPath: /
-
-databases:
-  - name: webhook-db
-    databaseName: webhook_processor
-    plan: free
