@@ -168,15 +168,15 @@ curl http://localhost:8000/v1/transactions/nonexistent
 
 ## � Livee Demo
 
-**Public API Endpoint**: `https://your-app-name.railway.app`
+**Public API Endpoint**: `https://webhook-processor.onrender.com`
 
 Try the live API:
 ```bash
 # Health check
-curl https://your-app-name.railway.app/
+curl https://webhook-processor.onrender.com/
 
 # Send webhook
-curl -X POST https://your-app-name.railway.app/v1/webhooks/transactions \
+curl -X POST https://webhook-processor.onrender.com/v1/webhooks/transactions \
   -H "Content-Type: application/json" \
   -d '{
     "transaction_id": "demo_123",
@@ -187,35 +187,32 @@ curl -X POST https://your-app-name.railway.app/v1/webhooks/transactions \
   }'
 
 # Check status
-curl https://your-app-name.railway.app/v1/transactions/demo_123
+curl https://webhook-processor.onrender.com/v1/transactions/demo_123
 ```
 
 ## 🚀 Deployment Options
 
-### Option 1: Railway (Recommended - Easiest)
+### Option 1: Render.com (Recommended - 100% Free)
 
 1. **Fork this repo** to your GitHub
-2. **Sign up** at [railway.app](https://railway.app)
-3. **Connect GitHub** and select this repo
-4. **Add MongoDB** service from Railway's database tab
-5. **Deploy** - Railway handles everything automatically!
+2. **Sign up** at [render.com](https://render.com) 
+3. **Create Blueprint** from your GitHub repo
+4. **Deploy** - Render uses `render.yaml` and sets up everything automatically!
 
-**Why Railway?**
-- ✅ One-click deployment from GitHub
-- ✅ Built-in MongoDB service
+**Why Render?**
+- ✅ 750 hours/month FREE (enough for demos)
+- ✅ Free MongoDB database included
 - ✅ Auto-deploys on git push
-- ✅ Free tier with good limits
-- ✅ Custom domain support
+- ✅ SSL certificates included
+- ✅ Zero configuration needed
 
-### Option 2: Render.com
+### Option 2: Fly.io (Free Tier)
 
-1. **Fork this repo** to your GitHub
-2. **Sign up** at [render.com](https://render.com)
-3. **Create Web Service** from GitHub repo
-4. **Add MongoDB** from Render's database services
-5. **Deploy** using the included `render.yaml`
+1. **Install Fly CLI**: `powershell -Command "iwr https://fly.io/install.ps1 -useb | iex"`
+2. **Deploy**: `fly auth login && fly launch`
+3. **Add MongoDB Atlas** (free tier)
 
-### Option 3: Fly.io
+### Option 3: Vercel (Serverless)
 
 ```bash
 # Install flyctl
